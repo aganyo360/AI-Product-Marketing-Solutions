@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ business.name }}</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #4d8585;
+    color: white;
+    padding: 20px;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.header h1 {
+    margin: 0; /* Remove default margin */
+}
+
+.header img {
+    max-width: 50px; /* Reduced logo size */
+    height: auto;
+    margin-right: 10px; /* Add margin for separation from h1 */
+}
+
+.body {
+    padding: 20px;
+    text-align: center; /* Center-align description */
+}
+
+.body p {
+    margin-bottom: 20px;
+    font-size: 18px; /* Increase font size */
+    font-style: italic; /* Italic font style */
+}
+
+.description-container {
+    background-color: #7b81813d; /* Background color for description container */
+    padding: 20px; /* Padding around description */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+.picture-container {
+    display: inline-block; /* Display inline to be positioned alongside text */
+}
+
+.picture-container img {
+    max-width: 150px; /* Reduced picture size */
+    height: auto;
+    margin-right: 10px; /* Add margin for separation from text */
+    border-radius: 10px; /* Apply border-radius for curved ends */
+}
+
+.footer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.chat-button {
+    background-color: #659675ee;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat-button:hover {
+    background-color: #0c532c;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="{{ business.logo.url }}" alt="{{ business.name }} Logo">
+        <h1>{{ business.name }}</h1>
+    </div>
+    <div class="body">
+        <div class="description-container">
+            <p>{{ business.description }}</p>
+        </div>
+        <br><br>
+        <div class="picture-container">
+            <img src="{{ business.pictures.url }}" alt="Business Picture">
+        </div>
+    </div>
+    <div class="footer">
+        <button class="chat-button">Product Marketing Channel Assistant</button>
+        <script src="{% static 'js/script.js' %}"></script>
+    </div>
+</body>
+</html>

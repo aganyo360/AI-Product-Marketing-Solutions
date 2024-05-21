@@ -1,0 +1,182 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Products Marketing Solutions</title>
+    <style>
+        /* Styles for Header, Hero, About, Contact, and Footer sections */
+        /* Add your CSS styles here */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Set background color */
+        }
+        /* Header Styles */
+        .header {
+            background-color: #0d8d968c;
+            color: white;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between; /* Align items to left and right */
+            align-items: center;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+        }
+        /* Footer Styles */
+        .footer {
+            background-color: #0d8d968c;
+            color: white;
+            text-align: center;
+            padding: 1px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Hero Section Styles */
+        .hero {
+    background-image: url('image.png/');      
+    background-color: #f4f4f4; /* Change background color */
+    background-size: cover;
+    background-position: center;
+    color: rgb(19, 14, 44);
+    text-align: center;
+    padding: 170px 60px;
+    margin-bottom: 5px; /* Add margin bottom for separation */  
+}
+
+        /* About Section Styles */
+        .about {
+            background-color: #f4f4f4; /* Change background color */
+            padding: 100px 100px;
+            text-align: center;
+            margin-bottom: 50px; /* Add margin bottom for separation */
+        }
+    .about p {
+    font-family: Arial, sans-serif; /* Specify font family */
+    font-size: 16px; /* Specify font size */
+    font-weight: normal; /* Specify font weight (e.g., normal, bold) */
+    font-style: italic; /* Specify font style (e.g., normal, italic) */
+    line-height: 2; /* Specify line height */
+}
+
+
+         /* Container Styles */
+         .container {
+            text-align: center;
+            background:  #f3ebeb52;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 150px auto; /* Adjust margin to center vertically */
+            max-width: 600px; /* Limit width for better readability */
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        p {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #007BFF;
+            transition: color 0.3s ease;
+        }
+        ul li a:hover {
+            color: #0056b3;
+        }
+        .add-business-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .add-business-btn:hover {
+            background: #0056b3;
+        }
+         /* Contact Section Styles */
+         .contact {
+            background-color: #f4f4f4;
+            padding: 100px 20px;
+            text-align: center;
+            line-height: 2; /* Specify line height */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>AI Product Marketing Solutions</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#home">Add Business</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact Us</a>
+          
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero" style="background-image: url('{{ image.png }}'); ">
+        <h2>Unlock the Power of AI for Marketing Success</h2>
+        <p>Transforming Products Marketing Strategies with AI Insights</p>
+    </div>
+    <div id="home" class="container">
+        <p>Welcome to our Business Directory!    <br>Here you can find a list of businesses and their details.</p>
+        <nav>
+            <ul>
+                {% for business in businesses %}
+                <li><a href="{% url 'business_detail' business.pk %}">{{ business.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <a class="add-business-btn" href="{% url 'add_business' %}">Add a New Business</a>
+    </div>
+    <!-- About Section -->
+    <div id="about" class="about">
+        <h2>About Us</h2><br>
+        <p>In today's rapidly evolving digital landscape, leveraging the power of Artificial Intelligence (AI) has become indispensable for businesses aiming to stay ahead of the competition. Our AI-driven solutions revolutionize traditional marketing approaches by harnessing the vast potential of data analytics and machine learning.
+
+            With AI Insights, we offer a comprehensive suite of tools and technologies designed to optimize every facet of your marketing strategy. From predictive analytics that anticipate consumer behavior to personalized marketing campaigns tailored to individual preferences, our AI-driven approach empowers businesses to connect with their target audience on a deeper level.</p>
+    </div>
+    <!-- Home Section -->
+   
+    <!-- Contact Section -->
+    <div id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or inquiries, feel free to reach out to us:</p>
+        <p>Email: info@aimarketingsolutions.com</p>
+        <p>Phone: +254 78-456-7890</p>
+        <p>Address: Nairobi, Kenya.</p>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 AI Product Marketing Solutions. All rights reserved.</p>
+    </div>
+</body>
+</html>
